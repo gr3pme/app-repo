@@ -1,0 +1,47 @@
+{
+  "name": "app-repo",
+  "version": "2.4.1",
+  "description": "Lightweight utility for managing environment configurations across multiple deployment targets",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "app-repo": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist coverage",
+    "prepublishOnly": "npm run build",
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "keywords": [
+    "config",
+    "environment",
+    "secrets",
+    "deployment",
+    "configuration-management"
+  ],
+  "author": "gr3pme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gr3pme/app-repo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gr3pme/app-repo/issues"
+  },
+  "homepage": "https://github.com/gr3pme/app-repo#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3"
+  }
+}

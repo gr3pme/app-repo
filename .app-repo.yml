@@ -1,0 +1,26 @@
+version: 1
+
+# Environment configurations
+environments:
+  - name: dev
+    provider: local
+    prefix: dev/
+
+  - name: staging
+    provider: local
+    prefix: staging/
+
+  - name: prod
+    provider: aws-ssm
+    region: us-east-1
+    prefix: /app-repo/prod/
+
+# Sync configuration
+sync:
+  auto: false
+  interval: 300  # seconds
+
+# Logging configuration
+logging:
+  level: info
+  file: ~/.config/app-repo/app-repo.log
