@@ -13,3 +13,6 @@ export { AWSSSMProvider } from './providers/aws-ssm';
 export { SyncEngine, syncEnvironments } from './sync';
 
 export { encrypt, decrypt, hash, generateSecret, encryptWithPassword, decryptWithPassword } from './utils/crypto';
+
+export { AuditLog } from './audit';
+export { startServer } from './server';

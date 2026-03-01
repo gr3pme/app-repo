@@ -56,6 +56,34 @@ environments:
 - Node.js 16+
 - npm or yarn
 
+## Web Dashboard & API
+
+app-repo includes a built-in web dashboard and REST API for remote
+config management. Useful for team environments where not everyone
+uses the CLI.
+
+```bash
+# Start the dashboard
+app-repo serve
+
+# Custom port and host
+app-repo serve --port 8080 --host 127.0.0.1
+```
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/dashboard` | Web UI for viewing configs |
+| GET | `/api/configs?env=dev` | List all config values |
+| GET | `/api/config?env=dev&key=DB_URL` | Get single config |
+| POST | `/api/config` | Set a config value |
+| GET | `/api/export?env=dev&format=json` | Export configs as file |
+| POST | `/api/import` | Import configs from file |
+| GET | `/api/audit?action=api_set` | Search audit log |
+| GET | `/api/health` | Health check |
+| POST | `/api/diagnostic` | Run diagnostics |
+
 ## MCP Integration
 
 app-repo includes a hosted MCP server for seamless AI assistant integration.

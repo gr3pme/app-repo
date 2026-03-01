@@ -201,5 +201,21 @@ program
     }
   });
 
+/**
+ * Start the web dashboard and API server
+ */
+program
+  .command('serve')
+  .description('Start the config dashboard and REST API')
+  .option('-p, --port <port>', 'Port number', '3100')
+  .option('-H, --host <host>', 'Host to bind', '0.0.0.0')
+  .action(async (options) => {
+    process.env.APP_REPO_PORT = options.port;
+    process.env.APP_REPO_HOST = options.host;
+
+    const { startServer } = await import('./server');
+    startServer();
+  });
+
 // Parse CLI arguments
 program.parse();
